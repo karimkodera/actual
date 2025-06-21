@@ -45,7 +45,6 @@ import { runMutator } from './mutators';
 import * as prefs from './prefs';
 import * as sheet from './sheet';
 import { setSyncingMode, batchMessages } from './sync';
-import { getIDByName } from '@actual-app/api';
 
 let IMPORT_MODE = false;
 

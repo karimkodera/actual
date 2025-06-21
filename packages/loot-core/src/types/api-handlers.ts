@@ -92,7 +92,7 @@ export interface ApiHandlers {
 
   'api/transactions-import': (arg: {
     accountId;
-    transactions: ImportTransactionEntity[];
+    transactions;
     isPreview?;
     opts?: ImportTransactionsOpts;
   }) => Promise<ImportTransactionsResult>;
