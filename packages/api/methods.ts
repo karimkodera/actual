@@ -260,16 +260,9 @@ export function skipNextScheduleDate(scheduleId: string) {
   return send('api/schedule-skip-next-date', scheduleId);
 }
 
-export function postScheduleTransaction(scheduleId: string) {
-  return send('api/schedule-post-transaction', scheduleId);
-}
 
 export function getUpcomingScheduleDates(config, count) {
   return send('api/schedule-get-upcoming-dates', { config, count });
-}
-
-export function discoverSchedules() {
-  return send('api/schedule-discover');
 }
 
 export function getSchedules() {

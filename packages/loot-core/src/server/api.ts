@@ -899,12 +899,6 @@ handlers['api/schedule-skip-next-date'] = withMutation(async function (
   return handlers['schedule/skip-next-date']({ id });
 });
 
-handlers['api/schedule-post-transaction'] = withMutation(async function (
-  id: string,
-) {
-  checkFileOpen();
-  return handlers['schedule/post-transaction']({ id });
-});
 
 handlers['api/get-id-by-name'] = withMutation(async function ({ type, name }) {
   const allowedTypes = ['payees', 'categories', 'schedules', 'accounts'];
@@ -926,10 +920,7 @@ handlers['api/schedule-get-upcoming-dates'] = withMutation(async function ({
   return handlers['schedule/get-upcoming-dates']({ config, count });
 });
 
-handlers['api/schedule-discover'] = withMutation(async function () {
-  checkFileOpen();
-  return handlers['schedule/discover']();
-});
+
 
 handlers['api/get-server-version'] = withMutation(async function () {
   checkFileOpen();
