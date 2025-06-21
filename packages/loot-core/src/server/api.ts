@@ -817,7 +817,7 @@ handlers['api/schedule-update'] = withMutation(async function ({
     switch (typedKey) {
       case 'name':
         sched.name = value as string;
-        if (sched.name.length > 0 && sched.id !== await getIDByName('schedules', sched.name)) {
+        if (sched.name.length > 0 /*&& sched.id !== await getIDByName('schedules', sched.name)*/) {
           console.warn('There is already a schedule with this name');
           return;
         }
