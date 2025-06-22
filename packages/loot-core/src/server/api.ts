@@ -816,14 +816,16 @@ handlers['api/schedule-update'] = withMutation(async function ({
 
     switch (typedKey) {
       case 'name':
-        sched.name = value as string;
-        if (sched.name.length > 0 /*&& sched.id !== await getIDByName('schedules', sched.name)*/) {
-          console.warn('There is already a schedule with this name');
-          return;
+        const newName = value as string;
+        const { data } = await aqlQuery(q('schedules').filter({ newName }).select('*'));
+        if (!data || data.length === 0 || data[0].id === sched.id) {
+        sched.name = newName;
+        conditionsUpdated = true;
         }
         else
         {
-          conditionsUpdated = true;
+          console.warn('There is already a schedule with this name');
+          return;
         }
         break;
       case 'rule':
