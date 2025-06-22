@@ -894,13 +894,6 @@ handlers['api/schedule-delete'] = withMutation(async function (id: string) {
   return handlers['schedule/delete']({ id });
 });
 
-handlers['api/schedule-skip-next-date'] = withMutation(async function (
-  id: string,
-) {
-  checkFileOpen();
-  return handlers['schedule/skip-next-date']({ id });
-});
-
 
 handlers['api/get-id-by-name'] = withMutation(async function ({ type, name }) {
   const allowedTypes = ['payees', 'categories', 'schedules', 'accounts'];
@@ -912,14 +905,6 @@ handlers['api/get-id-by-name'] = withMutation(async function ({ type, name }) {
     return 'Error: Not found';
   }
   return data[0].id;
-});
-
-handlers['api/schedule-get-upcoming-dates'] = withMutation(async function ({
-  config,
-  count,
-}) {
-  checkFileOpen();
-  return handlers['schedule/get-upcoming-dates']({ config, count });
 });
 
 

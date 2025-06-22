@@ -256,15 +256,6 @@ export function deleteSchedule(scheduleId) {
   return send('api/schedule-delete', scheduleId);
 }
 
-export function skipNextScheduleDate(scheduleId: string) {
-  return send('api/schedule-skip-next-date', scheduleId);
-}
-
-
-export function getUpcomingScheduleDates(config, count) {
-  return send('api/schedule-get-upcoming-dates', { config, count });
-}
-
 export function getSchedules() {
   return send('api/schedules-get');
 }

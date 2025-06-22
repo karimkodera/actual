@@ -205,12 +205,6 @@ export interface ApiHandlers {
 
   'api/schedule-delete': (id: string) => Promise<void>;
 
-  'api/schedule-skip-next-date': (id: string) => Promise<void>;
-
-  'api/schedule-get-upcoming-dates': (arg: {
-    config: RecurConfig;
-    count: number;
-  }) => Promise<string[]>;
   'api/schedules-get': () => Promise<APIScheduleEntity[]>;
   'api/get-id-by-name': (arg: {
     type: string;
