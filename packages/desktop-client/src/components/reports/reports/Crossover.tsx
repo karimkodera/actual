@@ -28,6 +28,7 @@ import { EditablePageHeaderTitle } from '@desktop-client/components/EditablePage
 import { FinancialText } from '@desktop-client/components/FinancialText';
 import { Checkbox } from '@desktop-client/components/forms';
 import { MobileBackButton } from '@desktop-client/components/mobile/MobileBackButton';
+import { MobileSaveButton } from '@desktop-client/components/mobile/MobileSaveButton';
 import {
   MobilePageHeader,
   Page,
@@ -433,6 +434,7 @@ function CrossoverInner({ widget }: CrossoverInnerProps) {
             leftContent={
               <MobileBackButton onPress={() => navigate('/reports')} />
             }
+            rightContent={widget && <MobileSaveButton onPress={onSaveWidget} />}
           />
         ) : (
           <PageHeader
@@ -460,7 +462,7 @@ function CrossoverInner({ widget }: CrossoverInnerProps) {
         latestTransaction={latestTransaction}
         onChangeDates={onChangeDates}
       >
-        {widget && (
+        {widget && !isNarrowWidth && (
           <Button variant="primary" onPress={onSaveWidget}>
             <Trans>Save widget</Trans>
           </Button>

@@ -26,6 +26,7 @@ import type { NetWorthWidget, TimeFrame } from 'loot-core/types/models';
 import { EditablePageHeaderTitle } from '@desktop-client/components/EditablePageHeaderTitle';
 import { FinancialText } from '@desktop-client/components/FinancialText';
 import { MobileBackButton } from '@desktop-client/components/mobile/MobileBackButton';
+import { MobileSaveButton } from '@desktop-client/components/mobile/MobileSaveButton';
 import {
   MobilePageHeader,
   Page,
@@ -302,6 +303,7 @@ function NetWorthInner({ widget }: NetWorthInnerProps) {
             leftContent={
               <MobileBackButton onPress={() => navigate('/reports')} />
             }
+            rightContent={widget && <MobileSaveButton onPress={onSaveWidget} />}
           />
         ) : (
           <PageHeader
@@ -342,9 +344,9 @@ function NetWorthInner({ widget }: NetWorthInnerProps) {
           </>
         }
       >
-        {widget && (
+        {widget && !isNarrowWidth && (
           <Button variant="primary" onPress={onSaveWidget}>
-            <Trans>Save widget</Trans>
+            <Trans>Save Widget</Trans>
           </Button>
         )}
       </Header>

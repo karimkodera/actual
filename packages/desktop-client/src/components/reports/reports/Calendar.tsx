@@ -34,6 +34,7 @@ import type {
 import { EditablePageHeaderTitle } from '@desktop-client/components/EditablePageHeaderTitle';
 import { FinancialText } from '@desktop-client/components/FinancialText';
 import { MobileBackButton } from '@desktop-client/components/mobile/MobileBackButton';
+import { MobileSaveButton } from '@desktop-client/components/mobile/MobileSaveButton';
 import { TransactionList as TransactionListMobile } from '@desktop-client/components/mobile/transactions/TransactionList';
 import {
   MobilePageHeader,
@@ -531,6 +532,7 @@ function CalendarInner({ widget, parameters }: CalendarInnerProps) {
             leftContent={
               <MobileBackButton onPress={() => navigate('/reports')} />
             }
+            rightContent={widget && <MobileSaveButton onPress={onSaveWidget} />}
           />
         ) : (
           <PageHeader
@@ -567,7 +569,7 @@ function CalendarInner({ widget, parameters }: CalendarInnerProps) {
           onConditionsOpChange={onConditionsOpChange}
           show1Month
         >
-          {widget && (
+          {widget && !isNarrowWidth && (
             <Button variant="primary" onPress={onSaveWidget}>
               <Trans>Save widget</Trans>
             </Button>
